@@ -1,0 +1,220 @@
+﻿@{
+    Layout = null;
+    var pageindex = Convert.ToInt32(ViewData["pageindex"]);
+    var area = Convert.ToInt32(ViewData["area"]);
+    var ages = Convert.ToInt32(ViewData["ages"]);
+    var agee = Convert.ToInt32(ViewData["agee"]);
+    var sex = ViewData["sex"];
+
+}
+@model Love_JiaYuan.Models.SearchModels
+<!DOCTYPE html>
+<html>
+<head>
+    <title>找呀找呀 找朋友~~</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/home.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/masonry-docs.min.js"></script>
+    <script src="~/Content/js/ljy.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">条件筛选</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form id="form1" class="navbar-form navbar-right" method="post" action="/">
+                    <div class="form-group">
+                        <span>性别：</span>
+                        <select id="sex" name="sex" class="form-control">
+                            <option value="f">女朋友</option>
+                            <option value="m">男朋友</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <span>地区：</span>
+                        <select id="area" name="area" class="form-control">
+                            <option value="11">北京</option>
+                            <option value="31">上海</option>
+                            <option value="4401">广州</option>
+                            <option value="4403">深圳</option>
+                            <option value="4201">武汉</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <span>年龄：</span>
+                        <select id="ages" name="ages" class="form-control">
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="34">34</option>
+                            <option value="35">35</option>
+                        </select>
+                        到
+                        <select id="agee" name="agee" class="form-control">
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="34">34</option>
+                            <option value="35">35</option>
+                        </select>
+                        岁
+                    </div>
+                    <input class="btn btn-default" type="submit" value="查找">
+                </form>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container-fluid" style="margin-top: 80px;">
+
+        <div class="row-fluid">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                @{
+                    if (Model.count > 0)
+                    {
+                <div class="alert alert-danger" role="alert" style="  text-align: center;">找到共有 @Model.count 人符合条件</div>
+
+                <div id="content" style="margin:0 auto;">
+
+                    @{
+                        foreach (var item in Model.userInfo)
+                        {
+                    <div class="item">
+                        <div class="row-fluid">
+                            <div class="col-md-6 column">
+                                <img alt="140x140" data-original="@item.image" class="img-thumbnail lazy" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <p class="name">@item.nickname</p>
+                                <span class="label label-success">@item.age 岁</span>
+                                <span class="label label-success">@item.work_location</span>
+                                <p class="zhufang">@Html.Raw(item.randTag)</p>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="col-md-12 column info">
+
+                                <p>
+                                    身高：@item.height cm    &nbsp;&nbsp; 学历：@item.education <br />
+                                    是否在线：@item.online
+                                </p>
+                                <span>Tags:</span>
+                                <p class="tag">@Html.Raw(item.randListTag)</p>
+                                <span>择偶标准：</span>
+                                <p class="alert alert-info" role="alert">@Html.Raw(item.matchCondition)</p>
+                                <span>自我介绍：</span>
+                                <p class="alert alert-warning" role="alert">@Html.Raw(item.shortnote)</p>
+                            </div>
+                        </div>
+
+                    </div>
+                        }
+                    }
+
+
+
+                </div>
+
+
+                <nav style=" margin: 40px;">
+                    <ul class="pager">
+                        @{
+                        if (pageindex == 1)
+                        {
+                        <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+                        }
+                        else
+                        {
+                        <li class="previous"><a href="/Home/Page?sex=@sex&area=@area&ages=@ages&agee=@agee&i=@(pageindex-1)"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+                        }
+                        }
+
+                        <li>@pageindex / @Model.pageTotal</li>
+                        @{
+                        if (pageindex == Model.pageTotal)
+                        {
+                        <li class="next disabled"><a href="#">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+                        }
+                        else
+                        {
+                        <li class="next"><a href="/Home/Page?sex=@sex&area=@area&ages=@ages&agee=@agee&i=@(pageindex+1)">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+                        }
+                        }
+
+                    </ul>
+                </nav>
+
+
+                <div class="alert alert-success" role="alert" style="text-align:center">&copy; 2015 <a href="http://niubile.me" target="_blank">niubile.me</a></div>
+
+                    }
+                    else
+                    {
+                <div class="alert alert-danger" role="alert" style="  text-align: center;">没有找到符合条件的人哦</div>
+                    }
+                }
+
+
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var area ='@area';
+            var ages='@ages';
+            var agee = '@agee';
+            var sex = '@sex';
+                 $("select[name='sex'] option[value='" + sex + "']").attr("selected", "selected");
+        $("select[name='area'] option[value='" + area + "']").attr("selected", "selected");
+            $("select[name='ages'] option[value='" + ages + "']").attr("selected", "selected");
+            $("select[name='agee'] option[value='" + agee + "']").attr("selected", "selected");
+        });
+    </script>
+</body>
+</html>
