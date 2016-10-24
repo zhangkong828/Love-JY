@@ -6,11 +6,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\WebSite\loveJiaYuan</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\ZhangKong\Documents\WebSite\loveJiaYuan</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Love_JiaYuan.dll">
-      <publishTime>11/16/2015 12:54:04</publishTime>
+      <publishTime>10/24/2016 11:42:13</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>05/04/2015 22:08:58</publishTime>
@@ -22,13 +22,13 @@
       <publishTime>05/04/2015 22:08:55</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
-      <publishTime>07/09/2013 11:04:48</publishTime>
+      <publishTime>05/04/2015 22:09:01</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>05/04/2015 22:09:00</publishTime>
     </File>
     <File Include="bin/System.Net.Http.WebRequest.dll">
-      <publishTime>07/09/2013 11:04:48</publishTime>
+      <publishTime>05/04/2015 22:09:01</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>05/04/2015 22:08:59</publishTime>
@@ -58,10 +58,10 @@
       <publishTime>05/04/2015 22:09:05</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Net.Http.resources.dll">
-      <publishTime>07/09/2013 11:34:42</publishTime>
+      <publishTime>05/04/2015 22:09:05</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Net.Http.WebRequest.resources.dll">
-      <publishTime>07/09/2013 11:34:40</publishTime>
+      <publishTime>05/04/2015 22:09:05</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
       <publishTime>05/04/2015 22:09:03</publishTime>
@@ -115,13 +115,13 @@
       <publishTime>05/05/2015 11:02:00</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/13/2015 13:58:10</publishTime>
+      <publishTime>10/24/2016 11:24:10</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>05/04/2015 22:08:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/16/2015 12:54:04</publishTime>
+      <publishTime>10/24/2016 11:42:13</publishTime>
     </File>
   </ItemGroup>
 </Project>
